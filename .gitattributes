@@ -1,0 +1,6 @@
+*.scala text eol=lf
+*.sc text eol=lf
+*.worksheet.sc text eol=lf
+*.log text eol=lf
+*.txt text eol=lf
+*.md text eol=lf

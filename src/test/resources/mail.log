@@ -1,0 +1,25 @@
+Oct 03 09:11:20 service9 postfix/cleanup[1221726]: 54BE7192007D: message-id=<657720787.4.1727939480336.JavaMail.tomcat7@service9>
+Oct 03 09:11:20 service9 postfix/cleanup[1221726]: 54BE7192007D: warning: header Subject: [Service 9] Report acceptance request for period 2024-10 from localhost[127.0.0.1]; from=<service9@example.com> to=<USER1@EXAMPLE.COM> proto=ESMTP helo=<service9>
+Oct 03 09:11:20 service9 postfix/qmgr[1065995]: 54BE7192007D: from=<service9@example.com>, size=777, nrcpt=1 (queue active)
+Oct 03 09:11:20 service9 postfix/smtpd[1221723]: disconnect from localhost[127.0.0.1] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Oct 03 09:11:20 service9 postfix/smtp[1221727]: 54BE7192007D: to=<USER1@EXAMPLE.COM>, relay=mailrelay.example.com[135.239.3.83]:25, delay=0.37, delays=0.01/0.01/0.21/0.14, dsn=2.0.0, status=sent (250 2.0.0 4937BKB9001631 Message accepted for delivery)
+Oct 03 09:11:20 service9 postfix/smtpd[1221723]: 54BE7192007D: client=localhost[127.0.0.1]
+Oct 03 09:11:20 service9 postfix/qmgr[1065995]: 54BE7192007D: removed
+Oct 03 12:39:51 service9 postfix/smtpd[1325540]: connect from localhost[127.0.0.1]
+Oct 03 12:39:51 service9 postfix/smtpd[1325540]: 2B189192007D: client=localhost[127.0.0.1]
+Oct 03 12:39:51 service9 postfix/cleanup[1325543]: 2B189192007D: message-id=<676925450.5.1727951991166.JavaMail.tomcat7@service9>
+Oct 03 12:39:51 service9 postfix/cleanup[1325543]: 2B189192007D: warning: header Subject: Service 9 - password change confirmation. from localhost[127.0.0.1]; from=<service9@example.com> to=<USER3@EXAMPLE.COMM> proto=ESMTP helo=<service9>
+Oct 03 12:39:51 service9 postfix/qmgr[1065995]: 2B189192007D: from=<service9@example.com>, size=769, nrcpt=1 (queue active)
+Oct 03 12:39:51 service9 postfix/smtpd[1325540]: disconnect from localhost[127.0.0.1] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Oct 03 12:39:51 service9 postfix/smtp[1325544]: 2B189192007D: to=<USER3@EXAMPLE.COMM>, relay=mailrelay.example.com[135.239.3.80]:25, delay=0.32, delays=0.01/0/0.18/0.12, dsn=2.0.0, status=sent (250 2.0.0 493AdpGm030819 Message accepted for delivery)
+Oct 03 12:39:51 service9 postfix/qmgr[1065995]: 2B189192007D: removed
+Sep 04 09:57:34 service9 postfix/smtpd[658078]: warning: dict_nis_init: NIS domain name not set - NIS lookups disabled
+Sep 04 09:57:34 service9 postfix/smtpd[658078]: connect from localhost[127.0.0.1]
+Sep 04 09:57:34 service9 postfix/smtpd[658078]: C77FF1920080: client=localhost[127.0.0.1]
+Sep 04 09:57:34 service9 postfix/cleanup[658081]: C77FF1920080: message-id=<2048989741.252827.1725436654804.JavaMail.tomcat7@service9>
+Sep 04 09:57:34 service9 postfix/cleanup[658081]: C77FF1920080: warning: header Subject: [Service 9] Report acceptance request for period 2024-09 from localhost[127.0.0.1]; from=<service9@example.com> to=<USER2@EXAMPLE.COM> proto=ESMTP helo=<service9>
+Sep 04 09:57:34 service9 postfix/qmgr[71340]: C77FF1920080: from=<service9@example.com>, size=781, nrcpt=1 (queue active)
+Sep 04 09:57:34 service9 postfix/smtpd[658078]: disconnect from localhost[127.0.0.1] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 04 09:57:35 service9 postfix/smtp[658082]: C77FF1920080: tox=<USER2@EXAMPLE.COM>, relay=mailrelay.example.com[135.239.3.83]:25, delay=0.34, delays=0.01/0.01/0.19/0.13, dsn=2.0.0, status=sent
+Sep 04 12:36:45 service9 postfix/smtpd[658238]: 4CC631920080: client=localhost[127.0.0.1]
+Sep 04 12:36:45 service9 postfix/cleanup[658241]: 4CC631920080: message-id=<759174434.252828.1725446205304.JavaMail.tomcat7@service9>

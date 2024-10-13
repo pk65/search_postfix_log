@@ -1,0 +1,14 @@
+**/target
+/.bloop/
+/.metals/
+/.vscode/
+/.idea/
+/.bsp/
+/null/
+/Powershell*/
+/project/*
+!/project/build.properties
+!/project/plugins.sbt
+/priv/
+/src/main/scala/**/*.worksheet.sc
+/src/test/resources/*.log.filtered
