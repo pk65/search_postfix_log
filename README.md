@@ -1,8 +1,10 @@
 # search_mail
 
-An example application built from the [ce3.g8 template](https://github.com/typelevel/ce3.g8).
+It searches for emails in Postfix log file and full requests related to provided email.
 
 ## Run application
+
+Please use at least JDK 17.
 
 ```shell
 sbt run
@@ -14,6 +16,22 @@ sbt run
 sbt test
 ```
 
-## sbt-tpolecat
+## Build package
 
-This template uses the `sbt-tpolecat` sbt plugin to set Scala compiler options to recommended defaults. If you want to change these defaults or find out about the different modes the plugin can operate in you can find out [here](https://github.com/typelevel/sbt-tpolecat/).
+```shell
+sbt "clean; compile; universal:packageBin"
+```
+
+Show parameters
+
+```shell
+$ ./search_postfix_log-0.1.0-SNAPSHOT/bin/search_postfix_log -h
+scopt 4.1.0
+Usage: scopt [options]
+  -e, --email <value>   mandatory user email
+  -i, --input <value>   input is Postfix log file
+  -o, --output <value>  output is filteredd log file
+  -h, --help            print help message and exit
+  -v, --verbose         verbose output
+  -d, --debug           debug output
+```

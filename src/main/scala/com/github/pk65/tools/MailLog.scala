@@ -6,11 +6,9 @@ import cats.implicits.*
 import org.typelevel.log4cats.Logger
 import java.io.PrintWriter
 import cats.effect.ExitCode
+import com.github.pk65.tools.LinesProcessor.LinesStorage
 
 object MailLog {
-  case class LinesStorage(personsEmail: String = "",
-   newLine: Option[String] = None,
-   reqListOfEmail: Set[(String, String, String)] = Set.empty[(String, String, String)])
 
   def closeFile[F[_]: Async : Logger](source: Source): F[Unit] =
     Logger[F].debug("closing source") >>
