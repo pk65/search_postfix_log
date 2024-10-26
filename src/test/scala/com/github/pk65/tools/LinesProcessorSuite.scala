@@ -9,8 +9,8 @@ class LinesProcessorSuite extends FunSuite {
     |Oct 03 09:11:20 service9 postfix/qmgr[1065995]: 54BE7192007D: from=<service9@example.com>, size=777, nrcpt=1 (queue active)
     |Oct 03 09:11:20 service9 postfix/smtp[1221727]: 54BE7192007D: to=<USER1@EXAMPLE.COM>, relay=mailrelay.example.com[135.239.3.83]:25, delay=0.37, delays=0.01/0.01/0.21/0.14, dsn=2.0.0, status=sent (250 2.0.0 4937BKB9001631 Message accepted for delivery)
     |Oct 03 09:11:20 service9 postfix/smtpd[1221723]: 54BE7192007D: client=localhost[127.0.0.1]
-    |Oct 03 09:11:20 service9 postfix/qmgr[1065995]: 54BE7192007D: removed""".stripMargin.split("\n").mkString(LP.LINE_SEPARATOR)
-  val resourcePath = getClass.getResource("/mail.log").getPath
+    |Oct 03 09:11:20 service9 postfix/qmgr[1065995]: 54BE7192007D: removed""".stripMargin.split("\n").nn.mkString(LP.LINE_SEPARATOR)
+  val resourcePath = getClass.getResource("/mail.log").nn.getPath.nn
 
 
   test("add lines one by one to the storage") {

@@ -9,9 +9,9 @@ object Main extends IOApp {
   def run(args: List[String]): IO[ExitCode] =
     given [IO[_]: Async]: Logger[IO] = Slf4jLogger.getLogger[IO]
     val inArgs = CommandLine.parser(args)
-    for {
+    for
       _ <- Logger[IO].debug(inArgs.toString)
       exitCode <- MailLog.readWithResource[IO](inArgs)
       _ <- Logger[IO].debug("Content read from selected input")
-    } yield exitCode
+    yield exitCode
 }

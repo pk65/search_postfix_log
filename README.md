@@ -29,8 +29,8 @@ $ ./search_postfix_log-0.1.0-SNAPSHOT/bin/search_postfix_log -h
 scopt 4.1.0
 Usage: scopt [options]
   -e, --email <value>   mandatory user email
-  -i, --input <value>   input is Postfix log file
-  -o, --output <value>  output is filteredd log file
+  -i, --input <value>   input is Postfix log file [.gz] (plain text or gzipped text)
+  -o, --output <value>  output is filtered log file
   -h, --help            print help message and exit
   -v, --verbose         verbose output
   -d, --debug           debug output

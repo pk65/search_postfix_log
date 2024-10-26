@@ -7,6 +7,8 @@ import org.typelevel.log4cats.Logger
 import java.io.PrintWriter
 import cats.effect.ExitCode
 import com.github.pk65.tools.LinesProcessor.LinesStorage
+import java.util.zip.GZIPInputStream
+import java.io.FileInputStream
 
 object MailLog {
 
@@ -17,24 +19,30 @@ object MailLog {
   def makeResourceForRead[F[_]: Async : Logger](inp: Source): Resource[F, Source] =
     Resource.make(inp.pure[F])(src => closeFile(src))
 
+  def getSourceStream(input: String): Source =
+    if input.endsWith(".gz") then
+      Source.fromInputStream(new GZIPInputStream(new FileInputStream(input)))
+    else
+      Source.fromFile(input)
+
   def readWithResource[F[_]: Async : Logger](args: Map[String, String]): F[ExitCode] =
     val argInput = args.get("input")
     val inp: Source = argInput match {
       case Some(input) =>
-        Source.fromFile(input)
+        getSourceStream(input)
       case None => Source.stdin
     }
     args.get("email") match {
       case Some(email) => Logger[F].debug("making resource from " + argInput.getOrElse("<STDIN>")) >>
         (
-          for {
+          for
             src <- makeResourceForRead(inp)
             dst <- TargetResource.makeResourceForWrite(args.get("output"))
-          } yield (src, dst)
+          yield (src, dst)
         ).use((src, dst) =>
-          for {
+          for
             _ <- run(readLinesTrampoline(src.getLines(), LinesStorage(email), dst))
-          } yield ExitCode.Success
+          yield ExitCode.Success
         )
       case None => Logger[F].error("email is required") >>
         Async[F].pure(ExitCode.Error)
@@ -55,7 +63,7 @@ object MailLog {
     case FlatMap(x, f) => x match {
       case Return(a) => run(f(a))
       case Suspend(r) => run(FlatMap(r(), f))
-      case FlatMap(y, g) => run(y.flatMap(g(_) flatMap f))
+      case FlatMap(y, g) => run(y.flatMap(g(_) `flatMap` f))
     }
   }
 

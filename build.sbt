@@ -1,6 +1,6 @@
 import org.typelevel.sbt.tpolecat.*
 
-ThisBuild / organization := "com.github.pk65.tools"
+ThisBuild / organization := "com.github.pk65"
 ThisBuild / scalaVersion := "3.3.3"
 Compile / run / fork := true
 
@@ -13,6 +13,20 @@ val LogbackVersion = "1.5.8"
 
 lazy val root = (project in file(".")).settings(
   name := "search_postfix_log",
+  version := "0.1.0-SNAPSHOT",
+  maintainer := "pawel.kuszynski@gmail.com",
+  scalacOptions ++= {
+    Seq(
+      "-new-syntax",
+      "explain-types",
+      "-rewrite",
+      "-source:future-migration",
+      "-Yexplicit-nulls"
+    )
+  },
+  scalacOptions --= {
+    Seq("-Xfatal-warnings")
+  },
   libraryDependencies ++= Seq(
     // "core" module - IO, IOApp, schedulers
     // This pulls in the kernel and std modules automatically.

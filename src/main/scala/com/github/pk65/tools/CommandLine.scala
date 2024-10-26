@@ -23,7 +23,7 @@ object CommandLine {
           .text("mandatory user email"),
         opt[String]('i', "input")
           .action((x, c) => c.copy(input = Some(x)))
-          .text("input is Postfix log file"),
+          .text("input is Postfix log file [.gz] (plain text or gzipped text)"),
         opt[String]('o', "output")
           .action((x, c) => c.copy(output = Some(x)))
           .text("output is filteredd log file"),
@@ -41,7 +41,7 @@ object CommandLine {
 
     OParser.parse(parser1, args, Config()) match {
       case Some(config) => 
-        if (config.help) {
+        if config.help then {
           println(OParser.usage(parser1))
           sys.exit(0)
         }
