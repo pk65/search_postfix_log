@@ -1,10 +1,10 @@
+[![Scala CI](https://github.com/pk65/search_postfix_log/actions/workflows/scala.yml/badge.svg)](https://github.com/pk65/search_postfix_log/actions/workflows/scala.yml)
+
 # search_mail
 
 It searches for emails in Postfix log file and full requests related to provided email.
 
 ## Run application
-
-Please use at least JDK 17.
 
 ```shell
 sbt run
@@ -19,7 +19,7 @@ sbt test
 ## Build package
 
 ```shell
-sbt "clean; compile; universal:packageBin"
+sbt "test; Universal / packageBin"
 ```
 
 Show parameters

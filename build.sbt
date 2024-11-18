@@ -1,15 +1,20 @@
 import org.typelevel.sbt.tpolecat.*
 
 ThisBuild / organization := "com.github.pk65"
-ThisBuild / scalaVersion := "3.3.3"
+ThisBuild / scalaVersion := "3.5.2"
 Compile / run / fork := true
+
+Universal / packageBin / mappings ++= Seq(
+  file("README.md") -> "README.md",
+  file("LICENSE.txt") -> "LICENSE.txt"
+)
 
 // This disables fatal-warnings for local development. To enable it in CI set the `SBT_TPOLECAT_CI` environment variable in your pipeline.
 // See https://github.com/typelevel/sbt-tpolecat/?tab=readme-ov-file#modes
 ThisBuild / tpolecatDefaultOptionsMode := VerboseMode
-val CatsEffectVersion = "3.5.4"
+val CatsEffectVersion = "3.5.5"
 val Log4catsSlf4jVersion = "2.7.0"
-val LogbackVersion = "1.5.8"
+val LogbackVersion = "1.5.12"
 
 lazy val root = (project in file(".")).settings(
   name := "search_postfix_log",
@@ -18,10 +23,11 @@ lazy val root = (project in file(".")).settings(
   scalacOptions ++= {
     Seq(
       "-new-syntax",
-      "explain-types",
+      "-explain-types",
       "-rewrite",
       "-source:future-migration",
-      "-Yexplicit-nulls"
+      "-Yexplicit-nulls",
+      "-Wunused:imports"
     )
   },
   scalacOptions --= {
@@ -43,3 +49,4 @@ lazy val root = (project in file(".")).settings(
     "org.typelevel" %% "munit-cats-effect" % "2.0.0" % Test)
 )
 enablePlugins(JavaAppPackaging)
+enablePlugins(LauncherJarPlugin)
